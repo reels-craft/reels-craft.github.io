@@ -1,0 +1,213 @@
+/* ===== 1. TOKENS — change colours/sizes here ===== */
+:root {
+  --bg: #070a0f;          /* page background */
+  --bg2: #0c1119;         /* raised sections */
+  --ink: #f2f0e8;         /* main text */
+  --mute: #8f9486;        /* secondary text */
+  --line: rgba(242,240,232,.13);
+  --acc: #25c9a8;         /* accent (logo teal) — old lime was #c9f31d */
+  --acc-ink: #04130f;     /* text on accent */
+  --pad: clamp(1.1rem, 4vw, 2.5rem);
+  --max: 1120px;
+  --ease: cubic-bezier(.22,.8,.24,1);
+}
+/* ===== 2. BASE ===== */
+* { box-sizing: border-box; margin: 0 }
+[hidden] { display: none !important }   /* a "hidden" element must never be shown by another display rule */
+html { scroll-behavior: smooth; scroll-padding-top: 5rem; background: var(--bg) }
+body { background: var(--bg); color: var(--ink); font: 400 1.05rem/1.65 "Bricolage Grotesque","IBM Plex Sans Arabic",system-ui,sans-serif; min-height: 100dvh; overflow-x: hidden; -webkit-font-smoothing: antialiased }
+body::after { /* film grain */
+  content: ""; position: fixed; inset: 0; z-index: 90; pointer-events: none; opacity: .07; mix-blend-mode: overlay;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+html[dir="rtl"] body { font-family: "IBM Plex Sans Arabic","Bricolage Grotesque",system-ui,sans-serif; line-height: 1.9 }
+html[dir="rtl"] :is(h1,h2,h3,.big,.logo span) { font-family: Cairo,"IBM Plex Sans Arabic",sans-serif; letter-spacing: 0 }
+img, video { max-width: 100%; display: block }
+a { color: inherit }
+button { font: inherit; color: inherit; cursor: pointer }
+:focus-visible { outline: 2px solid var(--acc); outline-offset: 3px }
+::selection { background: var(--acc); color: var(--acc-ink) }
+.skip { position: absolute; inset-inline-start: -999px }
+.skip:focus { inset-inline-start: 1rem; top: 1rem; z-index: 200; background: var(--acc); color: var(--acc-ink); padding: .5rem 1rem }
+.wrap { width: min(var(--max), calc(100% - var(--pad)*2)); margin-inline: auto }
+h1, h2, h3 { line-height: 1.05; letter-spacing: -.02em; font-weight: 800 }
+h2 { font-size: clamp(2rem, 5vw, 3.4rem); margin-bottom: 1.2rem }
+h3 { font-size: 1.3rem }
+.lead { color: #c9ccc0; max-width: 56ch; margin-top: 1rem }
+.btn { display: inline-flex; align-items: center; padding: .85rem 1.5rem; border-radius: 99px; font-weight: 600; text-decoration: none; border: 1px solid var(--line); transition: transform .3s var(--ease), background .3s, color .3s, border-color .3s }
+.btn.solid { background: var(--acc); color: var(--acc-ink); border-color: var(--acc) }
+.btn:hover { transform: translateY(-2px); border-color: var(--acc) }
+.btn.ghost:hover { background: rgba(37,201,168,.1) }
+/* scroll reveal (one gentle motion, not on every element) */
+.band, .work-h { transition: opacity .9s var(--ease), transform .9s var(--ease) }
+.js .band:not(.in) { opacity: 0; transform: translateY(24px) }
+
+/* ===== 3. SPLASH ===== */
+#splash { position: fixed; inset: 0; z-index: 150; background: var(--bg); display: grid; place-content: center; gap: 1rem; justify-items: center; transition: opacity .6s, visibility .6s }
+#splash img { width: min(260px, 60vw); height: auto }
+#splash i { width: 120px; height: 2px; background: var(--line); position: relative; overflow: hidden }
+#splash i::after { content: ""; position: absolute; inset: 0; background: var(--acc); transform: translateX(-100%); animation: load .9s var(--ease) forwards }
+#splash.out { opacity: 0; visibility: hidden }
+@keyframes load { to { transform: none } }
+
+/* ===== 4. HEADER ===== */
+.bar { position: fixed; inset: 0 0 auto; z-index: 60; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .9rem var(--pad); pointer-events: none }
+.bar > * { pointer-events: auto }
+.logo { display: flex; align-items: center; gap: .6rem; text-decoration: none; font-weight: 800 }
+.logo { flex: none } .logo img { display: block; width: auto; flex: none } .logo .full { height: 2.8rem } .logo .mk { display: none; height: 2.4rem }
+.flogo { height: 1.8rem; width: auto }
+#nav { position: absolute; inset-inline: 0; margin-inline: auto; width: max-content; display: flex; align-items: center; gap: .2rem; padding: .35rem; border: 1px solid var(--line); border-radius: 18px; background: rgba(10,15,22,.72); backdrop-filter: blur(16px); box-shadow: 0 10px 40px -10px rgba(0,0,0,.6) }
+#nav > a, #cbtn { padding: .5rem 1rem; border-radius: 12px; text-decoration: none; color: var(--ink); font-size: .95rem; background: none; border: 0; transition: color .25s, background .25s }
+#nav > a:hover, #cbtn:hover { background: rgba(255,255,255,.07) }
+#nav > a[aria-current] { color: var(--acc) }
+#cwrap { position: relative }
+#cbtn { background: rgba(255,255,255,.07); display: flex; gap: .4rem; align-items: center } #cbtn small { font-size: .7rem }
+#cmenu { position: absolute; top: calc(100% + .6rem); inset-inline-end: 0; min-width: 12rem; padding: .4rem; display: grid; border: 1px solid var(--line); border-radius: 16px; background: rgba(10,15,22,.95); backdrop-filter: blur(16px) }
+#cmenu[hidden] { display: none }
+#cmenu a { padding: .65rem 1rem; border-radius: 10px; text-decoration: none } #cmenu a:hover { background: rgba(37,201,168,.12); color: var(--acc) }
+#lang { background: rgba(10,15,22,.72); border: 1px solid var(--line); border-radius: 99px; padding: .4rem 1rem; backdrop-filter: blur(12px); transition: border-color .3s }
+#lang:hover { border-color: var(--acc) }
+@media (max-width: 720px) {
+  .logo .full { display: none } .logo .mk { display: block }
+  #nav { position: static; margin: 0; inset: auto }
+  #nav > a, #cbtn { padding: .45rem .6rem; font-size: .82rem; white-space: nowrap }
+  #nav > a[href="#faq"] { display: none }
+  #lang { padding: .35rem .8rem; font-size: .85rem }
+  .bar { gap: .5rem }
+}
+
+/* ===== 5. HERO ===== */
+.hero { min-height: 100svh; display: grid; align-items: center; padding: 6.5rem 0 3rem; background: radial-gradient(60% 50% at 75% 40%, rgba(37,201,168,.09), transparent 70%) }
+.hero-grid { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: center }
+.kicker { display: flex; align-items: center; gap: .5rem; color: var(--mute); font-size: .95rem; flex-wrap: wrap }
+.dot { width: .55rem; height: .55rem; border-radius: 50%; background: var(--acc); box-shadow: 0 0 0 0 var(--acc); animation: pulse 2s infinite }
+@keyframes pulse { 70% { box-shadow: 0 0 0 .6rem transparent } }
+h1 { font-size: clamp(3rem, 9vw, 6.6rem); margin: 1rem 0 .4rem }
+.role { color: var(--acc); font-weight: 600; font-size: 1.2rem }
+.row { display: flex; gap: .8rem; flex-wrap: wrap; margin-top: 2rem }
+.stat { margin-top: 2rem; color: var(--mute) } .stat b { color: var(--ink); font-size: 1.6rem }
+.monitor { position: relative; aspect-ratio: 16/9; border-radius: 18px; overflow: hidden; background: #000; border: 1px solid var(--line); box-shadow: 0 30px 80px -30px rgba(37,201,168,.25) }
+.monitor video { width: 100%; height: 100%; object-fit: cover }
+.tc { position: absolute; inset: .8rem auto auto .8rem; font: 500 .75rem ui-monospace, monospace; background: rgba(0,0,0,.55); padding: .2rem .5rem; border-radius: 6px }
+#sound { position: absolute; inset: .8rem .8rem auto auto; background: rgba(0,0,0,.55); border: 1px solid var(--line); border-radius: 99px; padding: .25rem .8rem; font-size: .8rem; backdrop-filter: blur(6px) }
+.bigplay { position: absolute; inset: 50% auto auto 50%; transform: translate(-50%,-50%); background: var(--acc); color: var(--acc-ink); border: 0; border-radius: 99px; padding: .8rem 1.4rem; font-weight: 600 }
+.scrub { position: absolute; inset: auto 0 0; height: 5px; background: rgba(255,255,255,.18); cursor: pointer }
+.scrub:hover { height: 8px }
+.scrub i { display: block; height: 100%; width: 0; background: var(--acc) }
+@media (max-width: 860px) { .hero-grid { grid-template-columns: 1fr } }
+
+.mq { overflow: hidden; border-block: 1px solid var(--line); padding: .9rem 0; direction: ltr }
+.mq-track { display: flex; gap: 3rem; width: max-content; animation: mq 40s linear infinite; font-weight: 800; font-size: 1.4rem; color: var(--mute) }
+.mq-track span::after { content: "✦"; margin-inline-start: 3rem; color: var(--acc) }
+@keyframes mq { to { transform: translateX(-50%) } }
+
+/* ===== 6. WORK CAROUSEL (coverflow) ===== */
+.work { position: relative; padding: clamp(4rem, 9vw, 7rem) 0 3rem; overflow: hidden; background: radial-gradient(50% 55% at 50% 55%, rgba(37,201,168,.07), transparent 70%), var(--bg) }
+.work-h { text-align: center; font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 800; margin-bottom: 2.5rem }
+.deck { position: relative; height: clamp(440px, 68vh, 640px); touch-action: pan-y; user-select: none; -webkit-user-select: none }
+.card { /* position/scale set by JS (layout()) */
+  position: absolute; inset: 50% auto auto 50%; height: 100%; aspect-ratio: 9/16; padding: 0; border: 1px solid var(--line); border-radius: 28px; overflow: hidden; background: #0d141b;
+  transition: transform .7s var(--ease), opacity .6s, filter .6s; will-change: transform;
+}
+.card.far { opacity: 0; pointer-events: none }
+.card:not(.on) { filter: brightness(.45) saturate(.6) blur(1.5px) }
+.card.on { border-color: rgba(37,201,168,.5); box-shadow: 0 40px 90px -30px rgba(37,201,168,.28) }
+.card :is(img, video) { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none }
+.card .ph { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; padding: 1rem; font-weight: 800; font-size: 1.6rem; background: linear-gradient(160deg, #12202a, #080c11) }
+.card .cap { position: absolute; inset: auto 0 0; padding: 3rem 1.2rem 1.1rem; text-align: start; background: linear-gradient(transparent, rgba(0,0,0,.85)); opacity: 0; transition: opacity .5s }
+.card.on .cap { opacity: 1 }
+.cap strong { display: block; font-size: 1.15rem } .cap em { font-style: normal; color: var(--mute); font-size: .85rem }
+.card .pbtn { position: absolute; inset: 50% auto auto 50%; width: 4.2rem; height: 4.2rem; transform: translate(-50%,-50%) scale(.9); border-radius: 50%; display: grid; place-items: center; background: rgba(255,255,255,.88); color: #111; transition: transform .35s var(--ease) }
+.card.on:hover .pbtn { transform: translate(-50%,-50%) scale(1.08) }
+.card svg, .pl-big svg { width: 1.6rem; height: 1.6rem; fill: currentColor }
+.deck-wrap { position: relative }
+.arrow { position: absolute; top: 50%; transform: translateY(-50%); z-index: 20; width: 3.2rem; height: 3.2rem; border-radius: 50%; border: 1px solid rgba(37,201,168,.55); background: rgba(7,10,15,.6); color: var(--acc); display: grid; place-items: center; backdrop-filter: blur(6px); transition: background .3s, color .3s, opacity .3s }
+.arrow.l { left: clamp(.6rem, 4vw, 4.5rem) } .arrow.r { right: clamp(.6rem, 4vw, 4.5rem) }
+.arrow:hover { background: var(--acc); color: var(--acc-ink) } .arrow:active { transform: translateY(-50%) scale(.92) }
+.arrow:disabled { opacity: .25; pointer-events: none }
+.arrow svg { width: 1.1rem; fill: none; stroke: currentColor; stroke-width: 2.4 }
+.count { margin-top: 1.6rem; text-align: center; color: var(--mute); font-variant-numeric: tabular-nums }
+.count b { color: var(--ink) }
+
+/* ===== 7. PLAYER OVERLAY (video left, info right — always, even in Arabic) ===== */
+html.lock { overflow: hidden }
+#player { position: fixed; inset: 0; z-index: 120; display: grid; place-items: center; padding: calc(var(--pad) + 2.5rem) var(--pad) var(--pad); background: rgba(4,7,11,.92); backdrop-filter: blur(18px); overflow: auto; opacity: 0; transition: opacity .35s; direction: ltr }
+#player[hidden] { display: none }
+#player.open { opacity: 1 }
+html[dir="rtl"] .pl-info { direction: rtl }
+.shell { transform: translateY(24px) scale(.97); transition: transform .55s var(--ease) }
+#player.open .shell { transform: none }
+.shell { animation: rise .55s var(--ease) }
+@keyframes fade { from { opacity: 0 } } @keyframes rise { from { opacity: 0; transform: translateY(24px) scale(.97) } }
+.shell { position: relative; /* grid below */ display: grid; grid-template-columns: minmax(0, auto) minmax(260px, 380px); gap: clamp(1.5rem, 4vw, 3.5rem); align-items: center; max-width: 1100px; width: 100%; justify-content: center }
+.x { position: absolute; inset: -3.2rem 0 auto auto; z-index: 5; width: 2.6rem; height: 2.6rem; border-radius: 50%; border: 1px solid var(--line); background: rgba(255,255,255,.08) }
+.x:hover { background: var(--acc); color: var(--acc-ink) }
+.pl-media { position: relative; height: min(78dvh, 700px); aspect-ratio: var(--r, 9/16); max-width: 100%; border-radius: 24px; overflow: hidden; background: #000; border: 1px solid var(--line); justify-self: center }
+.pl-media video { width: 100%; height: 100%; object-fit: contain; background: #000 }
+.pl-media.wide { height: auto; width: min(100%, 680px) }
+.pl-media:fullscreen { height: 100%; aspect-ratio: auto; border-radius: 0 }
+.pl-big { position: absolute; inset: 50% auto auto 50%; width: 4.6rem; height: 4.6rem; transform: translate(-50%,-50%); border-radius: 50%; border: 0; background: rgba(0,0,0,.6); color: #fff; backdrop-filter: blur(6px); display: grid; place-items: center; transition: opacity .3s, transform .3s var(--ease) }
+.pl-media.playing .pl-big { opacity: 0; pointer-events: none; transform: translate(-50%,-50%) scale(1.3) }
+.pl-bar { position: absolute; inset: auto 0 0; padding: 2.5rem 1rem .8rem; background: linear-gradient(transparent, rgba(0,0,0,.8)); transition: opacity .3s }
+.pl-media.playing.idle .pl-bar { opacity: 0 }
+.pl-row { display: flex; align-items: center; gap: .6rem; margin-top: .3rem; font: .8rem ui-monospace, monospace }
+.pl-row button { background: none; border: 0; width: 2rem; height: 2rem; padding: .3rem; border-radius: 8px; display: grid; place-items: center }
+.pl-row button:hover { background: rgba(255,255,255,.15) }
+.pl-row svg { width: 1.2rem; fill: currentColor }
+#plTime { margin-inline-end: auto }
+input[type=range] { -webkit-appearance: none; appearance: none; width: 100%; height: 18px; background: transparent; cursor: pointer; --p: 0%; display: block }
+input[type=range]::-webkit-slider-runnable-track { height: 4px; border-radius: 4px; background: linear-gradient(90deg, var(--acc) var(--p), rgba(255,255,255,.28) var(--p)) }
+input[type=range]::-moz-range-track { height: 4px; border-radius: 4px; background: rgba(255,255,255,.28) }
+input[type=range]::-moz-range-progress { height: 4px; background: var(--acc); border-radius: 4px }
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; margin-top: -4px; border-radius: 50%; background: var(--acc); border: 0 }
+input[type=range]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: var(--acc); border: 0 }
+.pl-media.loading::after { content: ""; position: absolute; inset: 50% auto auto 50%; width: 2.6rem; height: 2.6rem; margin: -1.3rem 0 0 -1.3rem; border: 3px solid rgba(255,255,255,.2); border-top-color: var(--acc); border-radius: 50%; animation: spin .8s linear infinite; z-index: 1 }
+@keyframes spin { to { transform: rotate(360deg) } }
+.pl-err { position: absolute; inset: 0; display: grid; place-content: center; text-align: center; padding: 2rem; background: #080c11; color: var(--mute); z-index: 2 }
+.pl-info .meta, .meta { display: flex; flex-wrap: wrap; gap: .5rem }
+.meta span { border: 1px solid var(--line); border-radius: 99px; padding: .2rem .8rem; font-size: .8rem; color: var(--mute) }
+.pl-info h3 { font-size: clamp(1.8rem, 4vw, 2.8rem); margin: 1rem 0 0 }
+.pl-info .btn { margin-top: 1.8rem }
+.pl-nav { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2.5rem; padding-top: 1.2rem; border-top: 1px solid var(--line) }
+.pl-nav button { background: none; border: 0; color: var(--mute); padding: 0; transition: color .3s } .pl-nav button:hover { color: var(--acc) }
+@media (max-width: 820px) {
+  .shell { grid-template-columns: 1fr }
+  .pl-media { height: min(62dvh, 560px) }
+  .pl-media.wide { height: auto; width: 100% }
+}
+
+/* ===== 8. ABOUT / FAQ / CONTACT ===== */
+.band { padding: clamp(4rem, 9vw, 7rem) 0; border-top: 1px solid var(--line) }
+.about { display: grid; grid-template-columns: minmax(220px, 340px) 1fr; gap: clamp(1.5rem, 5vw, 4rem); align-items: center; margin-bottom: 4rem }
+.portrait { position: relative; aspect-ratio: 4/5; border-radius: 24px; overflow: hidden; background: linear-gradient(160deg, #12202a, #080c11); border: 1px solid var(--line) }
+.portrait img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover }
+.portrait .mono { position: absolute; inset: 0; display: grid; place-items: center; font-size: 8rem; font-weight: 800; color: rgba(37,201,168,.35) }
+.portrait.ok .mono { display: none }
+.tools-h { color: var(--mute); margin-top: 1.8rem; font-size: .9rem }
+.tools { list-style: none; padding: 0; display: flex; gap: .8rem; margin-top: .7rem; flex-wrap: wrap }
+.tools a { display: flex; align-items: center; gap: .7rem; border: 1px solid var(--line); border-radius: 16px; padding: .45rem 1.1rem .45rem .45rem; text-decoration: none; font-size: .9rem; transition: border-color .3s, transform .3s var(--ease) }
+.tools a:hover { border-color: var(--acc); transform: translateY(-2px) }
+.tools svg { width: 2.5rem; height: 2.5rem; display: block }
+.svc { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--line); border-radius: 20px; margin-top: 1.2rem; overflow: hidden }
+.svc li { padding: 1.5rem; display: grid; gap: .5rem; align-content: start; border-inline-end: 1px solid var(--line); transition: background .4s }
+.svc li:last-child { border: 0 } .svc li:hover { background: rgba(37,201,168,.05) }
+.svc b { font-size: 1.1rem } .svc span { color: var(--mute); font-size: .95rem; line-height: 1.6 }
+@media (max-width: 900px) { .svc { grid-template-columns: 1fr 1fr } .svc li { border-bottom: 1px solid var(--line) } .about { grid-template-columns: 1fr } .portrait { max-width: 300px } }
+.faq details { border-bottom: 1px solid var(--line); max-width: 760px }
+.faq summary { cursor: pointer; padding: 1.2rem 0; font-weight: 600; font-size: 1.1rem; list-style: none; display: flex; justify-content: space-between; gap: 1rem }
+.faq summary::-webkit-details-marker { display: none }
+.faq summary::after { content: "+"; color: var(--acc); font-size: 1.5rem; line-height: 1; transition: transform .35s var(--ease) }
+.faq details[open] summary::after { transform: rotate(45deg) }
+.faq details p { color: var(--mute); padding-bottom: 1.2rem; max-width: 60ch }
+.contact h2 { font-size: clamp(2.6rem, 8vw, 6rem) }
+#links { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem }
+.big { display: inline-flex; gap: .8rem; padding: .9rem 1.6rem; border: 1px solid var(--line); border-radius: 99px; text-decoration: none; font-weight: 600; transition: all .3s var(--ease) }
+.big:first-child { background: var(--acc); color: var(--acc-ink); border-color: var(--acc) }
+.big:hover { transform: translateY(-3px); border-color: var(--acc) }
+.phone { width: 100%; color: var(--mute); direction: ltr; text-align: start; margin-top: .5rem }
+footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem; padding: 2rem var(--pad); border-top: 1px solid var(--line); color: var(--mute); font-size: .9rem }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto } *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important }
+  .mq-track { animation: none }
+}
