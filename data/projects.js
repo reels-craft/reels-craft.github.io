@@ -36,18 +36,6 @@ window.PROJECTS = [
     }
   },
   {
-    id: "compare-yourself",
-    title: { en: "Compare yourself to your past self", ar: "قارن نفسك بنفسك لا بالناس" },
-    kind: { en: "Motivational reel", ar: "ريل تحفيزي" },
-    ratio: "9/16", year: 2026,
-    src: "assets/videos/client-video-3.mp4",
-    poster: "",
-    blurb: {
-      en: "Edited a reel for an engineer about comparing yourself to your past self instead of to others, because comparing with people kills your motivation and ambition. I turned a motivational message into a fast, impactful reel with strong pacing and motion graphics in After Effects, designed to grab attention from the very first second.",
-      ar: "مونتاج ريل لمهندس، عن فكرة إنك تقارن نفسك بنفسك مش بالناس، لأن المقارنة بالآخرين بتكسر الحماس والطموح. حوّلت رسالة تحفيزية لريل سريع ومؤثر، بإيقاع قوي وموشن جرافيك في After Effects يلفت الانتباه من أول ثانية."
-    }
-  },
-  {
     id: "time-management",
     title: { en: "Organize your day, reach your goals", ar: "نظّم يومك وحقّق أهدافك" },
     kind: { en: "Educational reel", ar: "ريل تعليمي" },
@@ -57,6 +45,18 @@ window.PROJECTS = [
     blurb: {
       en: "Edited a reel for an engineer about time management and how to organize your day to get more done and reach your goals. I turned a practical message into a fast, impactful reel with strong pacing and motion graphics in After Effects, designed to grab attention from the very first second.",
       ar: "مونتاج ريل لمهندس، عن أهمية تنظيم الوقت وإزاي ترتب يومك عشان تنجز أكتر وتوصل لأهدافك. حوّلت نصيحة عملية لريل سريع ومؤثر، بإيقاع قوي وموشن جرافيك في After Effects يلفت الانتباه من أول ثانية."
+    }
+  },
+  {
+    id: "compare-yourself",
+    title: { en: "Compare yourself to your past self", ar: "قارن نفسك بنفسك لا بالناس" },
+    kind: { en: "Motivational reel", ar: "ريل تحفيزي" },
+    ratio: "9/16", year: 2026,
+    src: "assets/videos/client-video-3.mp4",
+    poster: "",
+    blurb: {
+      en: "Edited a reel for an engineer about comparing yourself to your past self instead of to others, because comparing with people kills your motivation and ambition. I turned a motivational message into a fast, impactful reel with strong pacing and motion graphics in After Effects, designed to grab attention from the very first second.",
+      ar: "مونتاج ريل لمهندس، عن فكرة إنك تقارن نفسك بنفسك مش بالناس، لأن المقارنة بالآخرين بتكسر الحماس والطموح. حوّلت رسالة تحفيزية لريل سريع ومؤثر، بإيقاع قوي وموشن جرافيك في After Effects يلفت الانتباه من أول ثانية."
     }
   },
   {
