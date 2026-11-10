@@ -8,7 +8,7 @@ window.SITE = {
   email: "",
   instagram: "",
   telegram: "",   // full link, e.g. https://t.me/username
-  tiktok: "",     // full link
+  tiktok: "https://www.tiktok.com/@reelscraft0",     // full link
   youtube: "",
   projects: "100+"
 };
