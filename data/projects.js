@@ -1,87 +1,86 @@
 /* ---------------------------------------------------------------
    YOUR WORK. One block = one card in the carousel.
    To add a film: copy a whole { ... } block, change the values.
-   id      unique short name (no spaces)
+   id      unique short name (no spaces, never repeat)
    title / kind / blurb   { en: "...", ar: "..." }
    ratio   shape of the VIDEO: "9/16" vertical, "1/1" square, "16/9" wide, "4/5"
-   dur     length in seconds (shown until the video reports its real length)
+           (only used for the label; the player reads the real shape from the file)
+   dur     OPTIONAL length in seconds. Leave it out: the site reads the real length from the video.
    src     path to the video file (put files in assets/videos/)
-   poster  cover image shown on the card (assets/img/). Optional: if missing,
-           the site uses the video's first frame.
-   Order here = order in the carousel. The middle one opens focused.
+   poster  OPTIONAL cover image (assets/img/). If empty, the site uses the video's first frame.
+   Order here = order in the carousel. The middle card (3rd of 6) opens focused.
    --------------------------------------------------------------- */
 window.PROJECTS = [
   {
-    id: "eid",
-    title: { en: "Dr. Mohamed Eid", ar: "د. محمد عيد" },
-    kind: { en: "Social film", ar: "فيديو سوشيال" },
-    ratio: "1/1", dur: 37, year: 2026,
-    src: "assets/videos/client-video-1.mp4",
-    poster: "",
-    blurb: {
-      en: "A square talking-head edit with animated Arabic captions that follow the voice, framed for the feed.",
-      ar: "مونتاج مربع لحوار أمام الكاميرا مع كابشنز عربية متحركة تتبع الصوت، بإطار مناسب للسوشيال."
-    }
-  },
-  {
-    id: "eid",
-    title: { en: "Dr. Mohamed Eid", ar: "د. محمد عيد" },
-    kind: { en: "Social film", ar: "فيديو سوشيال" },
-    ratio: "1/1", dur: 37, year: 2026,
+    id: "farm-supervision",
+    title: { en: "Case exam or full farm supervision?", ar: "كشف حالة أم إشراف كامل للمزرعة؟" },
+    kind: { en: "Medical reel", ar: "ريل طبي" },
+    ratio: "9/16", year: 2026,
     src: "assets/videos/client-video-2.mp4",
     poster: "",
     blurb: {
-      en: "A square talking-head edit with animated Arabic captions that follow the voice, framed for the feed.",
-      ar: "مونتاج مربع لحوار أمام الكاميرا مع كابشنز عربية متحركة تتبع الصوت، بإطار مناسب للسوشيال."
+      en: "Edited a reel for Dr. Mohamed Eid, a poultry disease specialist, about the difference between a case examination and full farm supervision. I turned complex medical information into a fast, clear reel with strong pacing and motion graphics in After Effects, designed to grab attention from the very first second.",
+      ar: "مونتاج ريل للدكتور محمد عيد، أخصائي أمراض الدواجن، عن الفرق بين كشف الحالة والإشراف الكامل للمزرعة. حوّلت معلومة طبية معقدة لريل سريع وواضح، بإيقاع قوي وموشن جرافيك في After Effects وجعلته يلفت الانتباه من أول ثانية."
     }
   },
   {
-    id: "eid",
-    title: { en: "Dr. Mohamed Eid", ar: "د. محمد عيد" },
-    kind: { en: "Social film", ar: "فيديو سوشيال" },
-    ratio: "1/1", dur: 37, year: 2026,
-    src: "assets/videos/video-5.mp4",
-    poster: "",
-    blurb: {
-      en: "A square talking-head edit with animated Arabic captions that follow the voice, framed for the feed.",
-      ar: "مونتاج مربع لحوار أمام الكاميرا مع كابشنز عربية متحركة تتبع الصوت، بإطار مناسب للسوشيال."
-    }
-  },
-  {
-    id: "eid",
-    title: { en: "Dr. Mohamed Eid", ar: "د. محمد عيد" },
-    kind: { en: "Social film", ar: "فيديو سوشيال" },
-    ratio: "1/1", dur: 37, year: 2026,
-    src: "assets/videos/client-video-3.mp4",
-    poster: "",
-    blurb: {
-      en: "A square talking-head edit with animated Arabic captions that follow the voice, framed for the feed.",
-      ar: "مونتاج مربع لحوار أمام الكاميرا مع كابشنز عربية متحركة تتبع الصوت، بإطار مناسب للسوشيال."
-    }
-  },
-  {
-    id: "eid",
-    title: { en: "Dr. Mohamed Eid", ar: "د. محمد عيد" },
-    kind: { en: "Social film", ar: "فيديو سوشيال" },
-    ratio: "1/1", dur: 37, year: 2026,
+    id: "recurring-disease",
+    title: { en: "The disease that returns every cycle", ar: "المرض الذي يعود في كل دورة" },
+    kind: { en: "Medical reel", ar: "ريل طبي" },
+    ratio: "9/16", year: 2026,
     src: "assets/videos/client-video-4.mp4",
     poster: "",
     blurb: {
-      en: "A square talking-head edit with animated Arabic captions that follow the voice, framed for the feed.",
-      ar: "مونتاج مربع لحوار أمام الكاميرا مع كابشنز عربية متحركة تتبع الصوت، بإطار مناسب للسوشيال."
+      en: "Edited a reel for Dr. Mohamed Eid, a poultry disease specialist, about the disease that keeps coming back in every fattening cycle at the same time. I turned a complex medical idea into a fast, clear reel with strong pacing and motion graphics in After Effects, designed to grab attention from the very first second.",
+      ar: "مونتاج ريل للدكتور محمد عيد، أخصائي أمراض الدواجن، عن المرض الذي يرجع في كل دورة تسمين وفي نفس التوقيت. حوّلت فكرة طبية معقدة لريل سريع وواضح، بإيقاع قوي وموشن جرافيك في After Effects يلفت الانتباه من أول ثانية."
     }
   },
   {
     id: "showreel",
-    title: { en: "Showreel", ar: "شو ريل" },
-    kind: { en: "Opener", ar: "مقدمة" },
-    ratio: "16/9", dur: 16, year: 2026,
+    title: { en: "Hassan Mohamed — Showreel", ar: "حسن محمد — شو ريل" },
+    kind: { en: "Showreel", ar: "شو ريل" },
+    ratio: "16/9", year: 2026,
     src: "assets/videos/intro.mp4",
     poster: "assets/img/intro-poster.jpg",
     blurb: {
-      en: "My opener: name card, tools, a quick pass over client work, and a closing contact card.",
-      ar: "مقدمتي الشخصية: كارت الاسم والبرامج ولقطات سريعة من أعمال العملاء، وتنتهي ببطاقة التواصل."
+      en: "Showreel of Hassan Mohamed, video editor. A collection of my work: medical and educational reels, plus motivational content, with strong pacing and After Effects motion graphics that hook viewers from the first second. Have an idea you want to bring to life? Let's work together.",
+      ar: "شو ريل حسن محمد، فيديو إيديتور. مجموعة من أشغالي في المونتاج: ريلز طبية وتعليمية، ومحتوى تحفيزي، بإيقاع قوي وموشن جرافيك في After Effects يشدّ المشاهد من أول ثانية. عندك فكرة أو محتوى عايز يوصل للناس بنفس القوة؟ ابعتلي وخلينا نشتغل سوا."
+    }
+  },
+  {
+    id: "time-management",
+    title: { en: "Organize your day, reach your goals", ar: "نظّم يومك وحقّق أهدافك" },
+    kind: { en: "Educational reel", ar: "ريل تعليمي" },
+    ratio: "9/16", year: 2026,
+    src: "assets/videos/client-video-1.mp4",
+    poster: "",
+    blurb: {
+      en: "Edited a reel for an engineer about time management and how to organize your day to get more done and reach your goals. I turned a practical message into a fast, impactful reel with strong pacing and motion graphics in After Effects, designed to grab attention from the very first second.",
+      ar: "مونتاج ريل لمهندس، عن أهمية تنظيم الوقت وإزاي ترتب يومك عشان تنجز أكتر وتوصل لأهدافك. حوّلت نصيحة عملية لريل سريع ومؤثر، بإيقاع قوي وموشن جرافيك في After Effects يلفت الانتباه من أول ثانية."
+    }
+  },
+  {
+    id: "compare-yourself",
+    title: { en: "Compare yourself to your past self", ar: "قارن نفسك بنفسك لا بالناس" },
+    kind: { en: "Motivational reel", ar: "ريل تحفيزي" },
+    ratio: "9/16", year: 2026,
+    src: "assets/videos/client-video-3.mp4",
+    poster: "",
+    blurb: {
+      en: "Edited a reel for an engineer about comparing yourself to your past self instead of to others, because comparing with people kills your motivation and ambition. I turned a motivational message into a fast, impactful reel with strong pacing and motion graphics in After Effects, designed to grab attention from the very first second.",
+      ar: "مونتاج ريل لمهندس، عن فكرة إنك تقارن نفسك بنفسك مش بالناس، لأن المقارنة بالآخرين بتكسر الحماس والطموح. حوّلت رسالة تحفيزية لريل سريع ومؤثر، بإيقاع قوي وموشن جرافيك في After Effects يلفت الانتباه من أول ثانية."
+    }
+  },
+  {
+    id: "chatgpt-explainer",
+    title: { en: "ChatGPT, explained", ar: "ChatGPT ببساطة" },
+    kind: { en: "Motion graphics", ar: "موشن جرافيك" },
+    ratio: "16/9", year: 2026,
+    src: "assets/videos/video-5.mp4",
+    poster: "",
+    blurb: {
+      en: "A motion graphics video about ChatGPT, handled from concept to final delivery. I broke the topic into short, clear scenes with animated visuals in After Effects that explain each point without complexity. I synced the pacing and transitions to the audio to keep viewers watching until the end, using clean, consistent colors and typography for a professional look that hooks from the first second.",
+      ar: "موشن جرافيك عن ChatGPT، اشتغلت عليه من الفكرة للتنفيذ النهائي. بسّطت الموضوع في مشاهد قصيرة وواضحة، ورسومات متحركة في After Effects بتشرح كل نقطة بصريًا من غير تعقيد. ضبطت الإيقاع مع الصوت والانتقالات بين المشاهد عشان المشاهد يفضل متابع للآخر، واخترت ألوان وخطوط بسيطة ومتناسقة تدّي الفيديو شكل احترافي يلفت الانتباه من أول ثانية."
     }
   }
-  /* Add more blocks here (comma after the previous block). The carousel looks best with 3+ films. */
 ];
