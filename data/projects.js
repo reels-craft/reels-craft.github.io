@@ -8,7 +8,7 @@
    dur     OPTIONAL length in seconds. Leave it out: the site reads the real length from the video.
    src     path to the video file (put files in assets/videos/)
    poster  OPTIONAL cover image (assets/img/). If empty, the site uses the video's first frame.
-   Order here = order in the carousel. The middle card (3rd of 6) opens focused.
+   Order here = order in the carousel (left to right). The carousel opens on the middle film (3rd of 6).
    --------------------------------------------------------------- */
 window.PROJECTS = [
   {
@@ -36,15 +36,15 @@ window.PROJECTS = [
     }
   },
   {
-    id: "showreel",
-    title: { en: "Hassan Mohamed — Showreel", ar: "حسن محمد — شو ريل" },
-    kind: { en: "Showreel", ar: "شو ريل" },
-    ratio: "16/9", year: 2026,
-    src: "assets/videos/intro.mp4",
-    poster: "assets/img/intro-poster.jpg",
+    id: "compare-yourself",
+    title: { en: "Compare yourself to your past self", ar: "قارن نفسك بنفسك لا بالناس" },
+    kind: { en: "Motivational reel", ar: "ريل تحفيزي" },
+    ratio: "9/16", year: 2026,
+    src: "assets/videos/client-video-3.mp4",
+    poster: "",
     blurb: {
-      en: "Showreel of Hassan Mohamed, video editor. A collection of my work: medical and educational reels, plus motivational content, with strong pacing and After Effects motion graphics that hook viewers from the first second. Have an idea you want to bring to life? Let's work together.",
-      ar: "شو ريل حسن محمد، فيديو إيديتور. مجموعة من أشغالي في المونتاج: ريلز طبية وتعليمية، ومحتوى تحفيزي، بإيقاع قوي وموشن جرافيك في After Effects يشدّ المشاهد من أول ثانية. عندك فكرة أو محتوى عايز يوصل للناس بنفس القوة؟ ابعتلي وخلينا نشتغل سوا."
+      en: "Edited a reel for an engineer about comparing yourself to your past self instead of to others, because comparing with people kills your motivation and ambition. I turned a motivational message into a fast, impactful reel with strong pacing and motion graphics in After Effects, designed to grab attention from the very first second.",
+      ar: "مونتاج ريل لمهندس، عن فكرة إنك تقارن نفسك بنفسك مش بالناس، لأن المقارنة بالآخرين بتكسر الحماس والطموح. حوّلت رسالة تحفيزية لريل سريع ومؤثر، بإيقاع قوي وموشن جرافيك في After Effects يلفت الانتباه من أول ثانية."
     }
   },
   {
@@ -60,18 +60,6 @@ window.PROJECTS = [
     }
   },
   {
-    id: "compare-yourself",
-    title: { en: "Compare yourself to your past self", ar: "قارن نفسك بنفسك لا بالناس" },
-    kind: { en: "Motivational reel", ar: "ريل تحفيزي" },
-    ratio: "9/16", year: 2026,
-    src: "assets/videos/client-video-3.mp4",
-    poster: "",
-    blurb: {
-      en: "Edited a reel for an engineer about comparing yourself to your past self instead of to others, because comparing with people kills your motivation and ambition. I turned a motivational message into a fast, impactful reel with strong pacing and motion graphics in After Effects, designed to grab attention from the very first second.",
-      ar: "مونتاج ريل لمهندس، عن فكرة إنك تقارن نفسك بنفسك مش بالناس، لأن المقارنة بالآخرين بتكسر الحماس والطموح. حوّلت رسالة تحفيزية لريل سريع ومؤثر، بإيقاع قوي وموشن جرافيك في After Effects يلفت الانتباه من أول ثانية."
-    }
-  },
-  {
     id: "chatgpt-explainer",
     title: { en: "ChatGPT, explained", ar: "ChatGPT ببساطة" },
     kind: { en: "Motion graphics", ar: "موشن جرافيك" },
@@ -81,6 +69,18 @@ window.PROJECTS = [
     blurb: {
       en: "A motion graphics video about ChatGPT, handled from concept to final delivery. I broke the topic into short, clear scenes with animated visuals in After Effects that explain each point without complexity. I synced the pacing and transitions to the audio to keep viewers watching until the end, using clean, consistent colors and typography for a professional look that hooks from the first second.",
       ar: "موشن جرافيك عن ChatGPT، اشتغلت عليه من الفكرة للتنفيذ النهائي. بسّطت الموضوع في مشاهد قصيرة وواضحة، ورسومات متحركة في After Effects بتشرح كل نقطة بصريًا من غير تعقيد. ضبطت الإيقاع مع الصوت والانتقالات بين المشاهد عشان المشاهد يفضل متابع للآخر، واخترت ألوان وخطوط بسيطة ومتناسقة تدّي الفيديو شكل احترافي يلفت الانتباه من أول ثانية."
+    }
+  },
+  {
+    id: "showreel",
+    title: { en: "Hassan Mohamed — Showreel", ar: "حسن محمد — شو ريل" },
+    kind: { en: "Showreel", ar: "شو ريل" },
+    ratio: "16/9", year: 2026,
+    src: "assets/videos/intro.mp4",
+    poster: "assets/img/intro-poster.jpg",
+    blurb: {
+      en: "Showreel of Hassan Mohamed, video editor. A collection of my work: medical and educational reels, plus motivational content, with strong pacing and After Effects motion graphics that hook viewers from the first second. Have an idea you want to bring to life? Let's work together.",
+      ar: "شو ريل حسن محمد، فيديو إيديتور. مجموعة من أشغالي في المونتاج: ريلز طبية وتعليمية، ومحتوى تحفيزي، بإيقاع قوي وموشن جرافيك في After Effects يشدّ المشاهد من أول ثانية. عندك فكرة أو محتوى عايز يوصل للناس بنفس القوة؟ ابعتلي وخلينا نشتغل سوا."
     }
   }
 ];
