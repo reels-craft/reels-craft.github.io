@@ -210,7 +210,7 @@
 
   function fillInfo() {
     const p = P[idx];
-    $("#plMeta").innerHTML = [p.year, L(p.kind), ratioLabel(p.ratio), mmss(p.dur)].filter(Boolean).map((x) => `<span>${x}</span>`).join("");
+    $("#plMeta").innerHTML = [p.year, L(p.kind), ratioLabel(p.ratio), (pv.duration || p.dur) ? mmss(pv.duration || p.dur) : ""].filter(Boolean).map((x) => `<span>${x}</span>`).join("");
     $("#plTitle").textContent = L(p.title);
     $("#plBlurb").textContent = L(p.blurb);
     $("#plWa").href = waLink(` (${L(p.title)})`);
@@ -283,7 +283,7 @@
     pv.addEventListener("ended", () => { setPlaying(false); media.classList.remove("idle"); });
     pv.addEventListener("timeupdate", timeUI);
     pv.addEventListener("loadedmetadata", () => {
-      timeUI();
+      timeUI(); fillInfo();                                  // refresh the length chip with the real duration
       if (pv.videoWidth && pv.videoHeight) {                 // trust the file, not the data: frame takes the video's real shape
         media.style.setProperty("--r", `${pv.videoWidth} / ${pv.videoHeight}`);
         media.classList.toggle("wide", pv.videoWidth / pv.videoHeight > 1.2);
